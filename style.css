@@ -1,0 +1,238 @@
+/* cssのリセット */
+html,body,p
+ul,ol,li,
+h1,h2,h3,h4,h5,h6,p,div {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Hiragino Kaku Gothic ProN W3', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+　　header
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+header {
+    height: 60px;
+    width: 100%;
+    background-color:rgba(34, 49, 52, 0.9);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+/* rgba
+    ・opactyは要素全体を透過させるので、背景色だけでなく、要素の中身であるテキストも透過されてしまう。
+    ・rgbaなら、素の中身であるテキストは透過させずに、背景色だけを透過させることができる 
+　　position: fixed
+    ・position: fixedでヘッダーを画面上の指定位置に常に固定できる。位置はtop: 0に固定
+    z-index
+    ・positionを使うと、要素の重なりが生じる。
+    ・そのため「レッスン紹介」と「ヘッダー」が重なった時にヘッダーが隠れてしまう。
+    ・z-indexで要素の重なりの順序を指定。値が大きいほど上に表示される。
+    ・必ずpotisionプロパティとの併用が必要。
+*/
+
+.logo {
+    width: 124px;
+    margin-top: 20px;
+}
+
+.header-left {
+    float: left;
+}
+
+.header-right {
+    float: right;
+    background-color:rgba(255, 255, 255, 0.3);
+}
+
+.header-right :hover {
+    background-color:rgba(255, 255, 255, 0.5);
+}
+
+.header-right a {
+    line-height: 65px;
+    padding: 0 25px;
+    color: #fff;
+    display: block;
+    transition: all 0.5s;
+}
+/* line-heightで行の高さを調整。
+    ・line-heightプロパティの「高さの中心」に文字が配置される仕様になっている。
+    ・これを利用して「要素の高さ」と「line-heightプロパティ」を同じ値にすると、文字がちょうど中央の高さに配置される。
+aタグの「クリックできる範囲」を拡げる
+    ・aタグはインライン要素なので、「中身のテキスト」の部分しか大きさを持たない。
+    ・その結果aタグをクリックできる範囲は範囲は「テキストの部分だけ」になってしまう。
+    ・aタグをブロック要素にすると、大きさがあ「親要素いっぱい」に広がるので、全体をクリックできるようになる。
+transition:で、aタグにアニメーションを付ける。
+    ・hoverした時に、ゆっくりと色が変わるようにする */
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+　　top
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+.top-wrapper {
+    padding: 180px 0 100px 0;
+    background-image:url(https://prog-8.com/images/html/advanced/top.png);
+    background-size: cover;
+    color: #FFF;
+    text-align: center;
+}
+
+.container {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.top-wrapper h1 {
+    opacity: 0.7;
+    font-size: 45px;
+    letter-spacing: 5px;
+}
+/* letter-spacingで文字の間隔を少し広げる */
+
+.top-wrapper p {
+    opacity: 0.7px;
+}
+
+.signup {
+    background-color: #239b76;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin: 15px 0;
+}
+
+.facebook {
+    background-color: #3b5998;
+    margin-right: 10px;
+}
+
+.twitter {
+    background-color: #55acee;
+}
+
+.btn {
+    padding: 8px 24px;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    opacity: 0.8;
+    border-radius: 4px;
+}
+/* インライン要素であるaタグに display: inline-block;を当ててインラインブロック要素にすることで、
+paddingを左右だけでなく上下にも付けられるようになる
+インラインブロック要素はインライン要素と同じように、横に並ぶが、ブロック要素のように幅や高さを持つ */
+
+.btn:hover {
+    opacity: 1;
+}
+
+.fa-brands {
+    margin-right: 5px;
+}
+/* アイコン共通のクラスにmarginrightを当てることでアイコンと文字の間にスペースを設ける */
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+　　lesson
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+.lesson-wrapper {
+    height: 500px;
+    padding-bottom: 80px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+.heading {
+    padding: 60px 0 30px 0;
+    color: #5f5d60;
+}
+
+.heading h2 {
+    font-weight: normal;
+}
+
+.lesson {
+    float: left;
+    width: 25%;
+}
+/* float:leftで左に配置（要素を横並び）にする */
+
+.lesson-icon {
+    position: relative;
+}
+
+.lesson-icon p {
+    position: absolute;
+    top: 75px;
+    width: 100%;
+    color: #fff;
+}
+/* テキストをアイコンと重ねて、アイコンの中央にテキストを配置。
+アイコンにposition: relative;を当てて、基準地をアイコンの左上に設定。
+テキストにposition: absolute;を当ててtopで上からの高さを設定。
+幅は4つのlessonで25％づつに分配しているので100％でとる。 */
+
+.text-contents {
+    width: 80%;
+    display: inline-block;
+    margin: 20px;
+    font-size: 12px;
+    color: #b3aeb5;
+}
+
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+　　message
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+.message-wrapper {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 80px;
+    text-align: center;
+}
+
+.message {
+    background-color: #5dca88;
+    padding: 15px 40px;
+    cursor: pointer;
+    box-shadow: 0 7px #1a7940;
+}
+/* box-shadは垂直方向は0とし、水平方向のみ7px設定 */
+
+
+/* ボタンを押したら凹んでいるように見せる処理 */
+.message:active {
+    box-shadow: none;
+    position: relative;
+    top: 7px;
+}
+/* セレクタにactiveを用いることで、要素ががクリックされている間だけcssを適用。
+position: relativeとtopで、影の分だけ、ボタンの位置を下に下げる。 */
+
+
+.heading h3 {
+    font-weight: normal;
+}
+
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+　　footer
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+footer {
+    padding-top: 30px;
+}
+
+footer img {
+    width: 125px;
+}
+
+footer p {
+    color: #b3aeb5;
+    font-size: 12px;
+}
+
