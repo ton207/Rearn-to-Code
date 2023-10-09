@@ -1,0 +1,48 @@
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+　　タブレット向けのレイアウト
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+ @media(max-width: 1000px) {
+    /* lesson要素を2段表示にする */
+    .lesson {
+        width: 50%;
+        margin-bottom: 50px;
+    }
+
+    /* 2段表示になった時に高さがはみ出てしまう。そ
+    の結果その下のmessageのh2のレイアウト崩れ（テキストがセンターに来ず崩れる）を起こす。
+    heightを保持することで、その下のmessageのh2のレイアウト崩れを防ぐ */
+    .lesson-wrapper{
+        height: 900px;
+    }
+ }
+
+
+ /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+　　スマホ向けのレイアウト
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+@media(max-width: 500px) {
+    /* btnを縦並び、中央配置、幅を短縮（左右に余白設定） */
+    .btn {
+        display: flex;
+        flex-direction: column;
+        margin: 0 80px 6px 80px;
+        position: relative;
+    }
+    /* flex-directionでflexアイテムが並ぶ方向や開始の位置を指定。columnで上寄せ、上から順に要素を配置 
+    flex-directionはflexアイテムに有効なプロパティのため、display: flex;と併用し親要素に記述*/
+
+    /* アイコンをテキストに横並びで揃える */
+    .fa-brands {
+        position: absolute;
+        top: 10px;
+        left: 40px;
+    }
+
+    /* lesson要素を4段表示にする */
+    .lesson {
+        width: 100%;
+    }
+ 
+}   
